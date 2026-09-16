@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{
+  height:100%;
+}
+body {
+  background: url("page3_bg.jpg");
+  background-size:cover;
+  background-position:center;
+  background-repeat: no-repeat;
+  min-height:100vh;
+}
+/* 左右两个按钮容器 ERC20 / TRC20 */
+.wrap-btn-top{
+  position:absolute;
+  top:40vh;
+  left:0;
+  width:100%;
+  display:flex;
+  gap:12px;
+  padding:0 16px;
+}
+.btn-left{
+  flex:1;
+  font-size:20px;
+  color:transparent;
+  border:none;
+  background:transparent;
+  cursor:pointer;
+  padding:12px 5px;
+}
+.btn-right{
+  flex:1;
+  font-size:20px;
+  color:transparent;
+  border:none;
+  background:transparent;
+  cursor:pointer;
+  padding:12px 5px;
+}
+/* COPY复制按钮，TRC20下方、靠右一点 */
+.copy-btn{
+  position:absolute;
+  top:58vh;
+  right:20px;
+  font-size:18px;
+  color:transparent;
+  border:none;
+  background:transparent;
+  cursor:pointer;
+  padding:8px 12px;
+}
+/* 下方第三个跳转按钮 */
+.btn-bottom{
+  position:absolute;
+  top:86vh;
+  left:50%;
+  transform:translate(-50%,-50%);
+  font-size:20px;
+  color:transparent;
+  border:none;
+  background:transparent;
+  cursor:pointer;
+  width:80%;
+  text-align:center;
+}
+</style>
+</head>
+<body>
+<div class="wrap-btn-top">
+  <!-- ERC20：点击留在当前page3页面，不跳转 -->
+  <button class="btn-left">ERC20</button>
+  <!-- TRC20：点击跳转到page4 -->
+  <button class="btn-right" onclick="location.href='page4.html'">TRC20</button>
+</div>
+
+<!-- Copy按钮，复制ERC20钱包地址 -->
+<button class="copy-btn" onclick="copyAddress()">Copy</button>
+
+<!-- 底部Next按钮：跳转到page4 -->
+<button class="btn-bottom" onclick="location.href='page4.html'">Next Page</button>
+
+<script>
+// 在这里替换成你的ERC20钱包地址
+function copyAddress(){
+  const walletAddr = "这里填入你的ERC20钱包地址";
+  navigator.clipboard.writeText(walletAddr).then(()=>{
+    alert("ERC20地址已复制！");
+  }).catch(err=>{
+    alert("复制失败，请手动复制");
+  })
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{
+  height:100%;
+}
+body {
+  background: url("page5_bg.jpg");
+  background-size:cover;
+  background-position:center;
+  background-repeat: no-repeat;
+  min-height:100vh;
+}
+/* Back按钮：左上角，向下微调一点，文字透明，点击区域不变 */
+.btn-back{
+  position:absolute;
+  top:8vh;
+  left:20px;
+  font-size:20px;
+  color:transparent;
+  border:none;
+  background:transparent;
+  cursor:pointer;
+  padding:12px 5px;
+}
+/* 上传按钮，位置保持不变，文字透明 */
+.upload-btn{
+  position:absolute;
+  top:60vh;
+  left:50%;
+  transform:translate(-50%,-50%);
+  font-size:20px;
+  color:transparent;
+  border:none;
+  background:transparent;
+  cursor:pointer;
+  padding:12px 20px;
+}
+#file-input{
+  display:none;
+}
+/* 预览图片：往下移动 */
+#previewImg{
+  position:absolute;
+  top:35vh;
+  left:50%;
+  transform:translate(-50%,0);
+  max-width:55%;
+  max-height:32vh;
+  display:none;
+  border-radius:8px;
+  object-fit:contain;
+}
+</style>
+</head>
+<body>
+<!-- 返回page4按钮 -->
+<button class="btn-back" onclick="location.href='page4.html'">Back</button>
+
+<!-- 上传图片按钮 -->
+<button class="upload-btn" onclick="document.getElementById('file-input').click()">Upload Image</button>
+<input type="file" id="file-input" accept="image/*">
+<img id="previewImg">
+
+<script>
+const fileInput = document.getElementById('file-input');
+const previewImg = document.getElementById('previewImg');
+fileInput.onchange = function(e){
+  const file = e.target.files[0];
+  if(file){
+    const reader = new FileReader();
+    reader.onload = function(event){
+      previewImg.src = event.target.result;
+      previewImg.style.display = "block";
+    }
+    reader.readAsDataURL(file);
+  }
+}
+</script>
+</body>
+</html>

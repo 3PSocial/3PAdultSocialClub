@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{
+  height:100%;
+}
+body {
+  background: url("page4_bg.jpg");
+  background-size:cover;
+  background-position:center;
+  background-repeat: no-repeat;
+  min-height:100vh;
+}
+/* ERC20 按钮：文字透明，保留原有点击区域 */
+.btn-erc{
+  position:absolute;
+  top:38vh;
+  left:70px;
+  font-size:20px;
+  color:transparent;
+  border:none;
+  background:transparent;
+  cursor:pointer;
+  padding:12px 5px;
+}
+/* COPY复制按钮 */
+.copy-btn{
+  position:absolute;
+  top:58vh;
+  right:20px;
+  font-size:18px;
+  color:transparent;
+  border:none;
+  background:transparent;
+  cursor:pointer;
+  padding:8px 12px;
+}
+/* 下方Next跳转按钮 */
+.btn-bottom{
+  position:absolute;
+  top:87vh;
+  left:50%;
+  transform:translate(-50%,-50%);
+  font-size:20px;
+  color:transparent;
+  border:none;
+  background:transparent;
+  cursor:pointer;
+  width:80%;
+  text-align:center;
+}
+</style>
+</head>
+<body>
+<!-- ERC20按钮，点击返回page3 -->
+<button class="btn-erc" onclick="location.href='page3.html'">ERC20</button>
+
+<!-- Copy按钮 -->
+<button class="copy-btn" onclick="copyAddress()">Copy</button>
+
+<!-- 底部Next按钮 -->
+<button class="btn-bottom" onclick="location.href='page5.html'">Next Page</button>
+
+<script>
+function copyAddress(){
+  const walletAddr = "这里填入钱包地址";
+  navigator.clipboard.writeText(walletAddr).then(()=>{
+    alert("地址已复制！");
+  }).catch(err=>{
+    alert("复制失败，请手动复制");
+  })
+}
+</script>
+</body>
+</html>

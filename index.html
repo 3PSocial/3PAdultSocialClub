@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{height:100%;}
+body {
+  background: url("home_bg.png");
+  background-size:cover;
+  background-position:center;
+  background-repeat: no-repeat;
+}
+/*隐形按钮：向上移动22px，其余不变*/
+.invisible-btn{
+  position:absolute;
+  /* top值：77vh 往上22像素 → 77vh - 22px */
+  top:calc(77vh - 22px);
+  left:50%;
+  transform:translate(-50%,-50%);
+  width:320px;
+  height:60px;
+  background:transparent;
+  border:none;
+  outline:none;
+  cursor:pointer;
+}
+</style>
+</head>
+<body>
+<!--隐形按钮，只在你图片按钮区域可点击，看不见任何东西-->
+<button class="invisible-btn" onclick="location.href='page2.html'"></button>
+</body>
+</html>
