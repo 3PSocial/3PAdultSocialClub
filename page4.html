@@ -62,12 +62,12 @@ body {
 <!-- Copy按钮 -->
 <button class="copy-btn" onclick="copyAddress()">Copy</button>
 
-<!-- 底部Next按钮 -->
-<button class="btn-bottom" onclick="location.href='page5.html'">Next Page</button>
+<!-- 底部Next按钮，跳转到第5页.html -->
+<button class="btn-bottom" onclick="location.href='第5页.html'">Next Page</button>
 
 <script>
 function copyAddress(){
-  const walletAddr = "这里填入钱包地址";
+  const walletAddr = "TCH6gbz8EW9fvb1Eg6Kv97CLw6MFAXm7jN"
   navigator.clipboard.writeText(walletAddr).then(()=>{
     alert("地址已复制！");
   }).catch(err=>{
